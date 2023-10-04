@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PDex.Application\PDex.Application.csproj" />
+    <ProjectReference Include="..\PDex.Infrastructure\PDex.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

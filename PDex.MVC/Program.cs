@@ -1,7 +1,13 @@
+using PDex.Infrastructure.Extensions;
+using PDex.Infrastructure.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add PDex.Infrastructure extensions
+builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 
