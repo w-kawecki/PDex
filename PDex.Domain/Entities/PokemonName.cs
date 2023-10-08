@@ -3,8 +3,8 @@
     public class PokemonName
     {
         public string English { get; set; } = default!;
-        public string Japanese { get; set; } = default!;
-        public string Chinese { get; set; } = default!;
-        public string French { get; set; } = default!;
+        public string? Japanese { get; set; }
+        public string? Chinese { get; set; }
+        public string? French { get; set; }
     }
 }

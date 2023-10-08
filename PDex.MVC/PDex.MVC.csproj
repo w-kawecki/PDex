@@ -15,6 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PDex.Application\PDex.Application.csproj" />
     <ProjectReference Include="..\PDex.Infrastructure\PDex.Infrastructure.csproj" />
   </ItemGroup>

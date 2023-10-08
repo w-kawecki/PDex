@@ -53,7 +53,6 @@ namespace PDex.Infrastructure.Migrations
                                 .HasColumnType("int");
 
                             b1.Property<string>("Chinese")
-                                .IsRequired()
                                 .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("English")
@@ -61,11 +60,9 @@ namespace PDex.Infrastructure.Migrations
                                 .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("French")
-                                .IsRequired()
                                 .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("Japanese")
-                                .IsRequired()
                                 .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("PokemonId");

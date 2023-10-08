@@ -1,0 +1,101 @@
+﻿@model IEnumerable<PDex.Application.Pokemon.PokemonDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameEnglish)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameJapanese)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameChinese)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameFrench)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attack)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Defense)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpAttack)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpDefense)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Speed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EncodedName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameEnglish)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameJapanese)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameChinese)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameFrench)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attack)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Defense)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpAttack)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpDefense)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Speed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EncodedName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

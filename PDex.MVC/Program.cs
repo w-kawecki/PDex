@@ -1,3 +1,4 @@
+using PDex.Application.Extensions;
 using PDex.Infrastructure.Extensions;
 using PDex.Infrastructure.Seeders;
 
@@ -8,6 +9,9 @@ builder.Services.AddControllersWithViews();
 
 // Add PDex.Infrastructure extensions
 builder.Services.AddInfrastructure(builder.Configuration);
+
+// Add PDex.Application extensions
+builder.Services.AddApplication();
 
 var app = builder.Build();
 
