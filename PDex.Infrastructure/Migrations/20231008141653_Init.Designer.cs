@@ -11,8 +11,8 @@ using PDex.Infrastructure.Persistence;
 namespace PDex.Infrastructure.Migrations
 {
     [DbContext(typeof(PokemonDbContext))]
-    [Migration("20231004150438_init")]
-    partial class init
+    [Migration("20231008141653_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,7 +36,10 @@ namespace PDex.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -47,29 +50,26 @@ namespace PDex.Infrastructure.Migrations
 
             modelBuilder.Entity("PDex.Domain.Entities.Pokemon", b =>
                 {
-                    b.OwnsOne("PDex.Domain.Entities.PokemonType", "Type", b1 =>
+                    b.OwnsOne("PDex.Domain.Entities.PokemonName", "Name", b1 =>
                         {
                             b1.Property<int>("PokemonId")
                                 .HasColumnType("int");
 
-                            b1.Property<int>("Type")
-                                .HasColumnType("int");
+                            b1.Property<string>("Chinese")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
 
-                            b1.HasKey("PokemonId");
+                            b1.Property<string>("English")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
 
-                            b1.ToTable("Pokemons");
+                            b1.Property<string>("French")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
 
-                            b1.WithOwner()
-                                .HasForeignKey("PokemonId");
-                        });
-
-                    b.OwnsOne("PDex.Domain.Entities.PokemonType", "Weaknesses", b1 =>
-                        {
-                            b1.Property<int>("PokemonId")
-                                .HasColumnType("int");
-
-                            b1.Property<int>("Type")
-                                .HasColumnType("int");
+                            b1.Property<string>("Japanese")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("PokemonId");
 
@@ -84,11 +84,23 @@ namespace PDex.Infrastructure.Migrations
                             b1.Property<int>("PokemonId")
                                 .HasColumnType("int");
 
-                            b1.Property<string>("Height")
-                                .HasColumnType("nvarchar(max)");
+                            b1.Property<int>("Attack")
+                                .HasColumnType("int");
 
-                            b1.Property<string>("Weight")
-                                .HasColumnType("nvarchar(max)");
+                            b1.Property<int>("Defense")
+                                .HasColumnType("int");
+
+                            b1.Property<int>("HP")
+                                .HasColumnType("int");
+
+                            b1.Property<int>("SpAttack")
+                                .HasColumnType("int");
+
+                            b1.Property<int>("SpDefense")
+                                .HasColumnType("int");
+
+                            b1.Property<int>("Speed")
+                                .HasColumnType("int");
 
                             b1.HasKey("PokemonId");
 
@@ -98,13 +110,10 @@ namespace PDex.Infrastructure.Migrations
                                 .HasForeignKey("PokemonId");
                         });
 
+                    b.Navigation("Name")
+                        .IsRequired();
+
                     b.Navigation("Stats")
-                        .IsRequired();
-
-                    b.Navigation("Type")
-                        .IsRequired();
-
-                    b.Navigation("Weaknesses")
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

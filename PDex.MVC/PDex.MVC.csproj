@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="JSONs\pokedex.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="JSONs\pokedex.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PDex.Application\PDex.Application.csproj" />
     <ProjectReference Include="..\PDex.Infrastructure\PDex.Infrastructure.csproj" />
   </ItemGroup>

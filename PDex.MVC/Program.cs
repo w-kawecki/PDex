@@ -1,5 +1,5 @@
 using PDex.Infrastructure.Extensions;
-using PDex.Infrastructure.Persistence;
+using PDex.Infrastructure.Seeders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +10,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
+
+// Seeder
+await app.Services.CreateScope().ServiceProvider.GetRequiredService<PokemonSeeder>().Seed();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

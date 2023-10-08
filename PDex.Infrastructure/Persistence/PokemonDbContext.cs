@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace PDex.Infrastructure.Persistence
 {
@@ -16,14 +17,20 @@ namespace PDex.Infrastructure.Persistence
                 optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=PDexDB;Trusted_Connection=True;");
             }
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Domain.Entities.Pokemon>()
+                .OwnsOne(c => c.Name);
             modelBuilder.Entity<Domain.Entities.Pokemon>()
                 .OwnsOne(c => c.Stats);
-            modelBuilder.Entity<Domain.Entities.Pokemon>()
-                .OwnsOne(c => c.Type);
-            modelBuilder.Entity<Domain.Entities.Pokemon>()
-                .OwnsOne(c => c.Weaknesses);
+            modelBuilder
+                .Entity<Domain.Entities.Pokemon>()
+                .Property(c => c.Type)
+                .HasConversion(
+                    v => JsonConvert.SerializeObject(v),
+                    v => JsonConvert.DeserializeObject<string[]>(v));
         }
     }
 }

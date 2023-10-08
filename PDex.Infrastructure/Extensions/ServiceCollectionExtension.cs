@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PDex.Infrastructure.Persistence;
+using PDex.Infrastructure.Seeders;
 
 namespace PDex.Infrastructure.Extensions
 {
@@ -11,6 +12,8 @@ namespace PDex.Infrastructure.Extensions
         {
             services.AddDbContext<PokemonDbContext>(options => options
             .UseSqlServer(configuration.GetConnectionString("PDex")));
+
+            services.AddScoped<PokemonSeeder>();
         }
     }
 }
