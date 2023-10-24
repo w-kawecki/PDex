@@ -15,15 +15,6 @@
                 @Html.DisplayNameFor(model => model.NameEnglish)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NameJapanese)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NameChinese)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NameFrench)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.HP)
             </th>
             <th>
@@ -41,9 +32,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Speed)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EncodedName)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -55,15 +43,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NameEnglish)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NameJapanese)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NameChinese)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NameFrench)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.HP)
@@ -84,7 +63,7 @@
                 @Html.DisplayFor(modelItem => item.Speed)
             </td>
             <td>
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }
